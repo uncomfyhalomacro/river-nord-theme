@@ -3,16 +3,24 @@
 
     "layer": "bottom",
     "position": "bottom",
-
-    "modules-center": [
+    "name": "bottom",
+    "modules-left": [
         "river/tags"
     ],
+    "modules-right": [
+        "tray",
+    ],
+    "tray": {
+        "icon-size": 16,
+        "spacing": 5
+    },
 
 },
 {
 
     "layer": "bottom",
     "position": "top",
+    "name": "top",
 
     "modules-center": [
         "clock",
@@ -28,7 +36,6 @@
 	"modules-right": [
         "custom/media",
         "custom/weather",
-        "tray",
 	],
 
 
@@ -88,11 +95,6 @@
         "format-alt": " {:%a %b %d}",
         "tooltip": true,
         "interval": 1
-    },
-
-    "tray": {
-        "icon-size": 16,
-        "spacing": 5
     },
 
     "network": {
