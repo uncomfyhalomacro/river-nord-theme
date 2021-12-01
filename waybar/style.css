@@ -1,7 +1,7 @@
 window.eDP-1 * {
-  font-size: 18px;
+  font-size: 15px;
   border-radius: 0px;
-  font-family: "Hack Nerd Font";
+  font-family: "JuliaMono", "Hack Nerd Font";
   min-height: 0px;
   min-width: 0px;
 }
@@ -14,51 +14,78 @@ window#waybar {
 }
 
 window#waybar.hidden {
-    opacity: 0.2;
+    opacity: 1.0;
 }
 
 #tags button{
-    font-size: 13px;
-    padding: 0px 13px 0px;
+    font-size: 12px;
+    padding: 0px 15px 0px;
     color: #d8dee9;
 }
 
+/*#tags button:hover{*/
+    /*font-size: 12px;*/
+    /*padding: 0px 15px 0px;*/
+    /*color: #5E81AC;*/
+    /*background-color: #B48EAD;*/
+/*}*/
+
 #tags button.occupied{
-    font-size: 13px;
-    padding: 0px 13px 0px;
+    font-size: 12px;
+    padding: 0px 15px 0px;
     background-color: #d8dee9;
     color: #404040; 
 }
 
-#tags button.urgent{
-    font-size: 13px;
-    padding: 0px 13px 0px;
-    color: #d8dee9;
+#tags button.occupied:hover {
+	font-size: 12px;
+	padding: 0px 15px 0px;
+	color: #d8dee9;
+	background-color: #5E81AC; 
 }
 
-#tags button.focused{
-    font-size: 13px;
-    padding: 0px 13px 0px;
+
+#tags button.urgent{
+    font-size: 12px;
+    padding: 0px 15px 0px;
+    color: #B48EAD;
+}
+
+#tags button.urgent:hover {
+	font-size: 12px;
+	padding: 0px 15px 0px;
+	background-color: #B48EAD;
+}
+
+#tags button.focused {
+    font-size: 12px;
+    padding: 0px 15px 0px;
     color: #d8dee9;
     background-color: #5E81AC;
 }
 
+#tags button.focused:hover {
+	font-size: 12px;
+	padding: 0px 15px 0px;
+	background-color: #d8dee9;
+	color: #5E81AC;
+}
 
 #custom-media {
-    font-size: 13px;
+    font-size: 15px;
     background-color: #a3be8c;
     color: #404040;
     padding: 0px 12px 0px;
 }
 
 #battery {
-   font-size: 13px; 
+   font-size: 15px; 
    padding: 0px 7px 0px;
    color: #c5c8c6;
 }
 
 #backlight {
-   font-size: 13px; 
+   font-size: 15px; 
   padding: 0px 10px 0px;
   color: #d8dee9;
 }
@@ -69,25 +96,25 @@ window#waybar.hidden {
 }
 
 #clock {
-  font-size: 13px; 
+  font-size: 15px; 
   padding: 0px 10px 0px;
   background-color: #ebcb8b;
   color: #404040;
   border-radius: 4px;
 }
 #pulseaudio {
-   font-size: 13px; 
+   font-size: 15px; 
   padding: 0px 10px 0px;
   color: #d8dee9;
 }
 
 #network {
-   font-size: 13px; 
+   font-size: 15px; 
   color: #d8dee9;
   padding: 0px 10px 0px;
 }
 #custom-ping {
-   font-size: 13px; 
+   font-size: 15px; 
   color: #d8dee9;
   padding: 0px 10px 0px 0px;
 }
@@ -95,7 +122,7 @@ window#waybar.hidden {
 	padding: 0px 5px;
 }
 #custom-weather {
-  font-size: 13px; 
+  font-size: 15px; 
   padding: 0px 10px 0px;
   background-color: #b48ead;
   color: #D5DBE6;
