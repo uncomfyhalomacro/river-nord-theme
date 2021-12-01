@@ -2,7 +2,6 @@
 
 A sample configuration and theme for [river](https://github.com/ifreund/river), a tiling window manager for wlroots based Wayland compositors written in [Zig](https://github.com/ziglang/zig/).
 
-
 ## Prerequisites
 
 You must have the following software in order to make this work:
