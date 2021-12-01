@@ -17,4 +17,14 @@ You must have the following software in order to make this work:
 - [wofi](https://hg.sr.ht/~scoopta/wofi) (rofi clone for wayland - unmaintained as of the moment but still going to use it)
 - A nerd font like Hack Nerd Font
 
-## Preview
+## Screenshots
+
+Bar 
+
+![Image](https://github.com/uncomfyhalomacro/river-nord-theme/blob/main/screenshots/bar.png)
+
+Previews
+
+![Image](https://github.com/uncomfyhalomacro/river-nord-theme/blob/main/screenshots/screenshot_01.png)
+
+![Image](https://github.com/uncomfyhalomacro/river-nord-theme/blob/main/screenshots/screenshot_02.png)
