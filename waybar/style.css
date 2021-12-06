@@ -7,7 +7,7 @@ window.eDP-1 * {
 }
 
 window#waybar {
-    background: #384252;
+    background: rgba(0,0,0,0);
     color:  #d8dee9;
     transition-property: background-color;
     transition-duration: .5s;
@@ -18,49 +18,64 @@ window#waybar.hidden {
 }
 
 #tags button{
-    font-size: 13px;
-    padding: 0px 13px 0px;
-    color: #d8dee9;
-}
-
-#tags button.occupied{
-    font-size: 13px;
-    padding: 0px 13px 0px;
-    background-color: #d8dee9;
-    color: #404040; 
-}
-
-#tags button.urgent{
-    font-size: 13px;
-    padding: 0px 13px 0px;
-    color: #d8dee9;
+    font-size: 18px;
+    color: #4c566a;
+	background-color: #2E3440;
+    padding: 2px 8px 2px 6px;
+  border: 2px solid #5E81AC;
+  border-radius: 6px;
 }
 
 #tags button.focused{
-    font-size: 13px;
-    padding: 0px 13px 0px;
+    font-size: 18px;
+    padding: 2px 8px 2px 6px;
     color: #d8dee9;
-    background-color: #5E81AC;
 }
 
+
+#tags button.urgent{
+    font-size: 18px;
+    padding: 2px 8px 2px 6px;
+    color: #D08770;
+}
+
+#tags button.occupied{
+    font-size: 18px;
+    padding: 2px 8px 2px 6px;
+    color: #5E81AC;
+}
+
+#tags button.occupied.focused {
+    font-size: 18px;
+    padding: 2px 8px 2px 6px;
+    color: #d8dee9;
+}
 
 #custom-media {
     font-size: 13px;
     background-color: #a3be8c;
     color: #404040;
     padding: 0px 12px 0px;
+  border: 2px solid #404040;
+  border-radius: 6px;
 }
 
 #battery {
    font-size: 13px; 
    padding: 0px 7px 0px;
    color: #c5c8c6;
+  background-color: #2E3440;
+  border: 2px solid #5E81AC;
+  border-radius: 6px;
 }
 
 #backlight {
    font-size: 13px; 
   padding: 0px 10px 0px;
   color: #d8dee9;
+  background-color: #2E3440;
+  border: 2px solid #5E81AC;
+  border-radius: 6px;
 }
 #custom-quit {
    font-size: 8px; 
@@ -73,18 +88,27 @@ window#waybar.hidden {
   padding: 0px 10px 0px;
   background-color: #ebcb8b;
   color: #404040;
-  border-radius: 4px;
+  border: 2px solid #404040;
+  border-radius: 6px;
 }
+
 #pulseaudio {
-   font-size: 13px; 
+  font-size: 13px; 
   padding: 0px 10px 0px;
   color: #d8dee9;
+  background-color: #2E3440;
+  border: 2px solid #5E81AC;
+  border-radius: 6px;
+
 }
 
 #network {
    font-size: 13px; 
   color: #d8dee9;
   padding: 0px 10px 0px;
+  background-color: #2E3440;
+  border: 2px solid #5E81AC;
+  border-radius: 6px;
 }
 #custom-ping {
    font-size: 13px; 
@@ -93,11 +117,15 @@ window#waybar.hidden {
 }
 #tray {
 	padding: 0px 5px;
+  border: 2px solid #5E81AC;
+  border-radius: 6px;
 }
 #custom-weather {
   font-size: 13px; 
   padding: 0px 10px 0px;
   background-color: #b48ead;
   color: #D5DBE6;
+  border: 2px solid #404040;
+  border-radius: 6px;
 
 }

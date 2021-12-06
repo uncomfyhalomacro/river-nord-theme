@@ -1,22 +1,23 @@
 {
 
     "layer": "bottom",
-    "position": "bottom",
+    "position": "top",
 
     "modules-center": [
-        "clock",
-    ],
-
-    "modules-left": [
         "river/tags"
     ],
 
-	"modules-right": [
+    "modules-left": [
+        "clock",
         "backlight", 
         "network",
         "battery", 
+    ],
+
+	"modules-right": [
         "pulseaudio",
         "custom/divider-left",
+        "wlr/taskbar",
         "custom/media",
         "custom/weather",
         "tray",
@@ -24,6 +25,18 @@
 
     "river/tags": {
         "num-tags": 9,
+        "tag-labels": [
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "辶",
+            "ﴬ"
+
+        ]
     },
 
     "custom/weather": {
@@ -99,6 +112,20 @@
         "icon-size": 16,
         "spacing": 5
     },
+
+   "wlr/taskbar": {
+		"format": "{icon}",
+		"icon-size": 14,
+		"icon-theme": "Papirus-Light",
+		"tooltip-format": "{title}",
+		"on-click-middle": "close",
+		"ignore-list": [
+			"Alacritty",
+			"foot",
+			"kitty",
+			"footclient"
+		]
+	},
 
     "network": {
                 "format": "{ifname} {bandwidthUpBits} - {bandwidthDownBits}",
