@@ -9,15 +9,15 @@ IFS=: read -ra path <<< "$PATH"
 
 [ -x "$(which flatpak)" ] && for i in "${flatapps[@]}"
 do
-    flatrun=("${flatrun[@]}" "flatpak run ${i}")
+    flatrun=( "${flatrun[@]}" "flatpak run ${i}" )
 done
 
 for p in "${path[@]}"
 do
-    frompaths=("${frompaths[@]}" "$(ls ${p})")
+    frompaths=( "${frompaths[@]}" "$(ls ${p})" )
 done
 
-allapps=("${frompaths[@]}" "${flatrun[@]}")
+allapps=( "${frompaths[@]}" "${flatrun[@]}" )
 
 for e in "${allapps[@]}"
 do 

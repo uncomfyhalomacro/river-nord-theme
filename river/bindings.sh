@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 ###############
 # Keybindings #
@@ -7,7 +7,7 @@
 mod="Mod4"
 
 # Set your terminal emulator - foot
-term=footclient
+term="foot"
 
 # LOCK ME UP  HERE TOO BUT BE ACTIVE
 riverctl map normal $mod "equal" spawn 'swaylock -f -i $HOME/.config/river/backgrounds/background.jpg'
@@ -15,10 +15,10 @@ riverctl map normal $mod I spawn "foot -T 'Firefox Profiles' -c $HOME/.config/fo
 riverctl map normal $mod O spawn "chromium --enable-features=UseOzonePlatform --ozone-platform=wayland"
 riverctl map normal "Mod1" "space" spawn "foot -T 'Desktop Launcher' -c $HOME/.config/foot/foot-thicc.ini -w '500x800' -a desktops $HOME/.config/river/desktop.sh foot"
 riverctl map normal $mod U spawn "foot -T 'Open Site' -c $HOME/.config/foot/foot-thicc.ini -w '300x300' -a desktops $HOME/.config/river/browser.sh"
-riverctl map normal $mod+Shift U spawn "foot -T 'Launcher' -c $HOME/.config/foot/foot-thicc.ini -w '200x400' -a launcher $HOME/.config/river/launcher.sh"
-riverctl map normal $mod T spawn "foot -f 'JuliaMono:size=7, Hack Nerd Font:size=7, Monofur Nerd Font:size=7, Noto Color Emoji:size=7' -a erudite $HOME/.config/river/erudite.sh"
-riverctl map normal $mod "slash" spawn "foot -T 'Library' -c $HOME/.config/foot/foot-thicc.ini -w '1200x600' -f 'JuliaMono:size=6, Hack Nerd Font:size=8, Monofur Nerd Font:size=8, Noto Color Emoji:size=8' -a library $HOME/.config/river/book.sh"
-
+riverctl map normal $mod+Shift U spawn "foot -T 'Launcher' -c $HOME/.config/foot/foot-thicc.ini -w '400x400' -a launcher $HOME/.config/river/launcher.sh"
+riverctl map normal $mod T spawn "tessen"
+riverctl map normal $mod "slash" spawn "foot -T 'Library' -c $HOME/.config/foot/foot-thicc.ini -w '1366x720' -f 'JuliaMono:size=6, Hack Nerd Font:size=8, Monofur Nerd Font:size=8, Noto Color Emoji:size=8' -a library $HOME/.config/river/book.sh"
+riverctl map normal $mod "N" spawn "foot -a launcher $HOME/.config/river/notes.sh"
 riverctl map normal $mod C spawn "foot -T 'Clipboard Manager' -c $HOME/.config/foot/foot-thicc.ini -w '700x400' -a clipfoot $HOME/.config/river/clipboardmanager.sh"
 riverctl map normal $mod "bracketright" spawn "$HOME/.local/bin/colorpicker.sh"
 # Screenshot scripts
@@ -26,9 +26,11 @@ riverctl map normal "None" Print spawn $HOME/.local/bin/mygrimshot.sh
 riverctl map normal "$mod" Print spawn '$HOME/.local/bin/mygrimshot.sh area'
 
 # Mod+Shift+Return to start an instance of foot (https://codeberg.org/dnkl/foot)
-riverctl map normal $mod+Shift Return spawn $term
+riverctl map normal $mod+Shift Return spawn "$term"
+#riverctl map normal $mod+Control Return spawn "foot -f 'JuliaMono:size=7, Hack Nerd Font:size=7, Monofur Nerd Font:size=7, Noto Color Emoji:size=7' -a erudite $HOME/.config/river/erudite.sh"
+riverctl map normal $mod+Control Return spawn "kitty --class erudite --name erudite $HOME/.config/river/erudite.sh"
 
-riverctl map normal $mod "backslash" spawn 'wshowkeys -b "#000000" -f "#ffffff" -s "#fcff00" -F "Hack Nerd Font 15" -t 1 -a "bottom" -a "right" -m 50'
+riverctl map normal $mod "backslash" spawn 'wshowkeys -b "#000000" -f "#ffffff" -s "#fcff00" -F "Hack Nerd Font 15" -t 1 -a "bottom" -a "right" -m 30'
 riverctl map normal $mod+Shift "backslash" spawn "pkill wshowkeys"
     
 #############################
@@ -180,9 +182,11 @@ do
     riverctl input $touchpad_device drag-lock enabled
 
     # Control pulse audio volume with pamixer (https://github.com/cdemoulins/pamixer)
-    riverctl map $mode None XF86AudioRaiseVolume  spawn 'pamixer -i 5'
-    riverctl map $mode None XF86AudioLowerVolume  spawn 'pamixer -d 5'
-    riverctl map $mode None XF86AudioMute         spawn 'pamixer --toggle-mute'
+    export WOBSOCKVOLUME="${XDG_RUNTIME_DIR}/wobvolume.sock"
+    export WOBSOCKBRIGHTNESS="${XDG_RUNTIME_DIR}/wobbacklight.sock"
+    riverctl map $mode None XF86AudioRaiseVolume  spawn "pamixer -ui 2 && pamixer --get-volume > $WOBSOCKVOLUME"
+    riverctl map $mode None XF86AudioLowerVolume  spawn "pamixer -ud 2 && pamixer --get-volume > $WOBSOCKVOLUME"
+    riverctl map $mode None XF86AudioMute         spawn "pamixer --toggle-mute && echo 0 > $WOBSOCKVOLUME"
 
     # Control MPRIS aware media players with playerctl (https://github.com/altdesktop/playerctl)
     riverctl map $mode None XF86AudioMedia spawn 'playerctl -p spotify play-pause'
@@ -191,8 +195,8 @@ do
     riverctl map $mode None XF86AudioNext  spawn 'playerctl -p spotify next'
 
     # Control screen backlight brighness with light (https://github.com/haikarainen/light)
-    riverctl map $mode None XF86MonBrightnessUp   spawn 'brightnessctl s +5%'
-    riverctl map $mode None XF86MonBrightnessDown spawn 'brightnessctl s 5%-'
+    riverctl map $mode None XF86MonBrightnessUp   spawn "brightnessctl s +5% | sed -En 's/.*\(([0-9]+)%\).*/\1/p' > ${WOBSOCKBRIGHTNESS}"
+    riverctl map $mode None XF86MonBrightnessDown spawn "brightnessctl s 5%- | sed -En 's/.*\(([0-9]+)%\).*/\1/p' > ${WOBSOCKBRIGHTNESS}"
 
 done
  
@@ -212,12 +216,13 @@ riverctl float-filter-add app-id "library"
 riverctl float-filter-add app-id "firefoxprofile"
 riverctl float-filter-add app-id "clipfoot"
 riverctl float-filter-add title "Picture-in-Picture"
+riverctl float-filter-add title "Firefox — Sharing Indicator"
 
 # Set app-ids of views which should use client side decorations
 riverctl csd-filter-add app-id "gedit"
 riverctl csd-filter-add app-id "swappy"
 riverctl csd-filter-add app-id "desktops"
-riverctl csd-filter-add app-id "launcher"
+# riverctl csd-filter-add app-id "launcher"
 riverctl csd-filter-add app-id "firefoxprofile"
 riverctl csd-filter-add app-id "library"
 riverctl csd-filter-add app-id "clipfoot"
