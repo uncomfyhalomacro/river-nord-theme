@@ -1,9 +1,9 @@
-font=Hack Nerd Font 10
+font=VictorMono Nerd Font 13
 default-timeout=5000
 layer=overlay
 anchor=bottom-right
-width=310
-height=110
+width=525
+height=300
 border-radius=4
 border-size=2
 max-icon-size=128
