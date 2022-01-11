@@ -10,7 +10,7 @@ bar:
   margin: 0
   layer: bottom
   foreground: eeeeeeff
-  background: 1c1c1c00
+  background: 2E3440dd
 
   left:
     - river:
@@ -38,6 +38,7 @@ bar:
           map:
             on-click: 
               left: sh -c "riverctl set-focused-tags $((1 << ({id} - 1)))"
+              right: sh -c "riverctl toggle-view-tags $((1 << ({id} -1)))"
             tag: state
             values:
               urgent:
@@ -374,7 +375,7 @@ bar:
                       size: 3
                       color: 73ba25ff
               - string:
-                  text: "{pacman} + {aur} = {pkg}"
+                  text: "Official:{pacman} AUR:{aur} Flatpak:{flatpak} Total:{pkg}"
                   right-margin: 5
                   deco:
                     underline:

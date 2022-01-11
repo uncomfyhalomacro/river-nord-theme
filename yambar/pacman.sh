@@ -30,7 +30,7 @@
 #            0: {string: {text: no updates}}
 
 
-declare interval aur_helper pacman_num aur_num pkg_num
+declare interval aur_helper pacman_num aur_num flatpak_num pkg_num
 
 # Error message in STDERR
 _err() {
@@ -40,6 +40,7 @@ _err() {
 # Display tags before yambar fetch the updates number
 printf -- '%s\n' "pacman|int|0"
 printf -- '%s\n' "aur|int|0"
+printf -- '%s\n' "flatpak|int|0"
 printf -- '%s\n' "pkg|int|0"
 printf -- '%s\n' ""
 
@@ -49,13 +50,14 @@ while true; do
   # NUMBER[SUFFIXE]
   # Possible suffix:
   #  "s" seconds / "m" minutes / "h" hours / "d" days 
-  interval="12h"
+  interval="4h"
   
   # Change your aur manager
   aur_helper="paru"
 
   # Get number of packages to update
   pacman_num=$(checkupdates | wc -l)
+  flatpak_num=$(flatpak remote-ls --updates | tail -n +1 | wc -l)
 
   if ! hash "${aur_helper}" >/dev/null 2>&1; then
     _err "aur helper not found, change it in the script"
@@ -64,10 +66,11 @@ while true; do
     aur_num=$("${aur_helper}" -Qmu | wc -l)
   fi
   
-  pkg_num=$(( pacman_num + aur_num ))
+  pkg_num=$(( pacman_num + aur_num + flatpak_num ))
 
   printf -- '%s\n' "pacman|int|${pacman_num}"
   printf -- '%s\n' "aur|int|${aur_num}"
+  printf -- '%s\n' "flatpak|int|${flatpak_num}"
   printf -- '%s\n' "pkg|int|${pkg_num}"
   printf -- '%s\n' ""
 
@@ -75,6 +78,6 @@ while true; do
 
 done
 
-unset -v interval aur_helper pacman_num aur_num pkg_num
+unset -v interval aur_helper pacman_num aur_num flatpak_num pkg_num
 unset -f _err
 

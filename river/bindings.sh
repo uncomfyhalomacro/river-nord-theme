@@ -12,7 +12,7 @@ term="foot"
 # LOCK ME UP  HERE TOO BUT BE ACTIVE
 riverctl map normal $mod "equal" spawn 'swaylock -f -i $HOME/.config/river/backgrounds/background.jpg'
 riverctl map normal $mod I spawn "foot -T 'Firefox Profiles' -c $HOME/.config/foot/foot-thicc.ini -w '350x200' -a firefoxprofile $HOME/.config/river/firefox.sh"
-riverctl map normal $mod O spawn "chromium --enable-features=UseOzonePlatform --ozone-platform=wayland"
+riverctl map normal $mod O spawn "flatpak --user run org.chromium.Chromium"
 riverctl map normal "Mod1" "space" spawn "foot -T 'Desktop Launcher' -c $HOME/.config/foot/foot-thicc.ini -w '500x800' -a desktops $HOME/.config/river/desktop.sh foot"
 riverctl map normal $mod U spawn "foot -T 'Open Site' -c $HOME/.config/foot/foot-thicc.ini -w '300x300' -a desktops $HOME/.config/river/browser.sh"
 riverctl map normal $mod+Shift U spawn "foot -T 'Launcher' -c $HOME/.config/foot/foot-thicc.ini -w '400x400' -a launcher $HOME/.config/river/launcher.sh"
@@ -21,6 +21,7 @@ riverctl map normal $mod "slash" spawn "foot -T 'Library' -c $HOME/.config/foot/
 riverctl map normal $mod "N" spawn "foot -a launcher $HOME/.config/river/notes.sh"
 riverctl map normal $mod C spawn "foot -T 'Clipboard Manager' -c $HOME/.config/foot/foot-thicc.ini -w '700x400' -a clipfoot $HOME/.config/river/clipboardmanager.sh"
 riverctl map normal $mod "bracketright" spawn "$HOME/.local/bin/colorpicker.sh"
+riverctl map normal $mod "semicolon" spawn "/usr/bin/thunar"
 # Screenshot scripts
 riverctl map normal "None" Print spawn $HOME/.local/bin/mygrimshot.sh
 riverctl map normal "$mod" Print spawn '$HOME/.local/bin/mygrimshot.sh area'
