@@ -27,6 +27,7 @@ if [[ $answer == "y" ]] || [[ $answer == "Y" ]]; then
         fi
     done
     cp $SCRIPT_DIR/mygrimshot.sh $HOME/.local/bin -fv
+    cp $SCRIPT_DIR/newnotes.sh $HOME/.local/bin -fv
     cp $SCRIPT_DIR/wayriver.sh $HOME/wayriver.sh -fv
     cp $SCRIPT_DIR/pipewire.sh $HOME/.config/pipewire.sh -fv
     echo "Done copying configs"
@@ -38,5 +39,4 @@ else
     echo "Aborted"
     exit
 fi
-
 
