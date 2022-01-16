@@ -3,7 +3,7 @@ shopt -s lastpipe
 
 firefoxprofile=("personal" "social" "school")
 
-printf "%s\n" "${firefoxprofile[@]}" | fzf -e -i --prompt='launch firefox profile: ' | read -r profile
+printf "%s\n" "${firefoxprofile[@]}" | fuzzel -P "Select Firefox Profile: " -s FFFACDff -t 5E81ACff -b 2e3440ff -r 0 -F exec -T foot -C 5E81ACff -f "mononoki Nerd Font:size=10" -x 30 -w 40 -y 100 -p 0 -l 3 --dmenu | read -r profile
 
 [ -z "${profile}" ] && exit
 if [ -x "$(command -v firefox)" ]

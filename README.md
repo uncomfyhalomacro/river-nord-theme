@@ -14,6 +14,8 @@ You must have the following software in order to make this work:
 - [foot](https://codeberg.org/dnkl/foot) (a native wayland terminal emulator)
 - [yambar](https://codeberg.org/dnkl/yambar) (a lightweight bar using YAML as a configuration format)
 - [wbg](https://codeberg.org/dnkl/wbg) (a simple wallpaper application for wlroots. You can replace it with swaybg as that has more features)
+- wob (custom levels)
+- [fuzzel](https://codeberg.org/dnkl/fuzzel) (simple rofi/dmenu inspired launcher)
 - For screenshots, install slurp, grim, swappy, and notify-send
 - A nerd font like Hack Nerd Font
 

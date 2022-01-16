@@ -15,13 +15,13 @@ sites=(
     "personal     foot                https://codeberg.org/dnkl/foot"
     "personal     odysee              https://odysee.com"
     "personal     openSUSE            https://opensuse.github.io/openSUSE-docs-revamped-temp"
-    "personal	    youtube             https://youtu.be"
+		"personal	    youtube             https://youtu.be"
     "personal     useful-notes        https://github.com/uncomfyhalomacro/useful-notes"
     "school       google-classroom    https://classroom.google.com"
-	  "school       google-docs         https://docs.google.com"
+		"school       google-docs         https://docs.google.com"
     "school       google-scholar      https://scholar.google.com"
     "school       google-chat         https://chat.google.com"
-	  "school       MOLE                https://online.msuiit.edu.ph/moodle"
+		"school       MOLE                https://online.msuiit.edu.ph/moodle"
     "social       facebook            https://fb.me"
     "social       facebook-messenger  https://messenger.com"
     "social       r/julia             https://reddit.com/r/Julia"
@@ -33,7 +33,7 @@ sites=(
 for site in "${sites[@]}"
 do
     echo "${site}" | awk '{print $1" "$2}'
-done | sort | fzf -d' ' -e -i --prompt="site: " | read -r name 
+done | sort | fuzzel -P "Open Site: " -s FFFACDff -t 5E81ACff -b 2e3440ff -r 0 -F exec -T foot -C 5E81ACff -f "mononoki Nerd Font:size=10" -x 30 -w 40 -y 100 -p 0 -l 20 --dmenu | read -r name 
 
 [ -z "${name}" ] && exit
 for site in "${sites[@]}"
