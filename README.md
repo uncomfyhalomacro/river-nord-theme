@@ -6,16 +6,17 @@ A sample configuration and theme for [river](https://github.com/ifreund/river), 
 
 You must have the following software in order to make this work:
 
-- Spotify (for added waybar spice)
+- Spotify (you can replace it with any spotify client e.g. spotifyd, spotify-tui for added waybar spice)
 - [playerctl](https://github.com/altdesktop/playerctl) (needed for playback stuff. Available usually in the official repositories)
 - [river-tag-overlay](https://git.sr.ht/~leon_plickat/river-tag-overlay) (for showing pop-ups about the currently focused and occupied tags)
 - [stacktile](https://git.sr.ht/~leon_plickat/stacktile) (more powerful layout generator for river)
-- [ristate](https://gitlab.com/snakedye/ristate) (a river-status client)
-- [waybar](https://github.com/Alexays/Waybar) (bar like polybar but for wayland)
 - [mako](https://github.com/emersion/mako) (a notification daemon for wayland)
 - [foot](https://codeberg.org/dnkl/foot) (a native wayland terminal emulator)
-- [wofi](https://hg.sr.ht/~scoopta/wofi) (rofi clone for wayland - unmaintained as of the moment but still going to use it)
+- [yambar](https://codeberg.org/dnkl/yambar) (a lightweight bar using YAML as a configuration format)
+- [wbg](https://codeberg.org/dnkl/wbg) (a simple wallpaper application for wlroots. You can replace it with swaybg as that has more features)
 - A nerd font like Hack Nerd Font
+
+Note: Read the scripts if you want to modify something.
 
 ## Screenshots
 
@@ -28,3 +29,5 @@ Previews
 ![Image](https://github.com/uncomfyhalomacro/river-nord-theme/blob/main/screenshots/screenshot_01.png)
 
 ![Image](https://github.com/uncomfyhalomacro/river-nord-theme/blob/main/screenshots/screenshot_02.png)
+
+![Image](https://github.com/uncomfyhalomacro/river-nord-theme/blob/main/screenshots/screenshot_03.png)

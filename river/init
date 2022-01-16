@@ -13,15 +13,15 @@
 # Interop #
 #'#########
 gsettings set org.gnome.desktop.default-applications.terminal exec foot.desktop
-riverctl spawn "dbus-update-activation-environment SEATD_SOCK DISPLAY WAYLAND_DISPLAY DESKTOP_SESSION=river XDG_CURRENT_DESKTOP=river"
-riverctl spawn "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=river"
-riverctl spawn "/usr/libexec/polkit-gnome-authentication-agent-1"
+VARIABLES="DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP XDG_SESSION_TYPE"
+riverctl spawn "systemctl --user import-environment ${VARIABLES:- --all}"
+riverctl spawn "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
 
 ###########################
 # SCREENCASTING AND SOUND #
 ###########################
-riverctl spawn "exec /usr/libexec/xdg-desktop-portal-wlr -r"
-riverctl spawn "exec /usr/libexec/xdg-desktop-portal -r"
+riverctl spawn "exec /usr/lib/xdg-desktop-portal-wlr -r"
+riverctl spawn "exec /usr/lib/xdg-desktop-portal -r"
 
 ##########
 # RELOAD #
@@ -34,11 +34,14 @@ riverctl map normal "Mod4" R spawn $HOME/.config/river/init
 ###################
 riverctl spawn "river-tag-overlay --background-colour 0x2e3440 --border-colour 0x000000 --square-active-occupied-colour 0x84bcbb --square-active-background-colour 0x000000 --square-active-border-colour 0x81a1c1 --tag-amount 11"
 
-riverctl spawn $HOME/.config/river/wlsunset.sh
 riverctl spawn $HOME/.config/mako/mako.sh
 riverctl spawn $HOME/.config/river/swaybg.sh
+riverctl spawn $HOME/.config/river/wlsunset.sh
+riverctl spawn $HOME/.config/river/wobsock.sh
+riverctl spawn $HOME/.config/yambar/yambar.sh
+
+# Always last
 riverctl spawn $HOME/.config/river/bindings.sh
-riverctl spawn $HOME/.config/waybar/waybar.sh
 
 pkill wl-paste
 wl-paste -t text --watch clipman store & disown
@@ -50,16 +53,14 @@ riverctl spawn $HOME/.config/river/lock.sh
 # Themes and Colors #
 #####################
 # Borders
-riverctl border-color-focused 0x81a1c1ff
-riverctl border-color-unfocused 0xe5e9f0dd
-riverctl border-width 2
+riverctl border-color-focused 0xFFFACDff
+riverctl border-color-unfocused 0x5E81ACff
+riverctl border-width 4
 riverctl background-color 0x282828
+
 
 gnome_schema="org.gnome.desktop.interface"
 gsettings set "$gnome_schema" gtk-theme "Adwaita-dark"
-gsettings set "$gnome_schema" icon-theme "Papirus-Dark"
-gsettings set "$gnome_schema" cursor-theme "Breeze_Snow"
-gsettings set "$gnome_schema" font-name "Open Sauce Sans 10"
-
-riverctl xcursor-theme "Breeze_Snow"
-
+gsettings set "$gnome_schema" icon-theme "Papirus"
+gsettings set "$gnome_schema" cursor-theme "Adwaita"
+gsettings set "$gnome_schema" font-name "VictorMono Nerd Font 10"
