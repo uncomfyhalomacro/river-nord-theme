@@ -7,7 +7,7 @@ export tmp_pdf_file=$(mktemp)
 IFS=$'\n' read -r -d '' -a PDF <<< "$(find "$DOC" -name "*.pdf")"
 IFS=$'\n' read -r -d '' -a EPUB <<< "$(find "$DOC" -name "*.epub")"
 BOOKS=( "${PDF[@]}" "${EPUB[@]}" )
-for i in "${BOOKS[@]}"; do echo "$i"; done | sort | fzf -e -i --prompt='read book: ' --preview '
+for i in "${BOOKS[@]}"; do echo "$i"; done | sort | fzf --sync -e -i --prompt='read book: ' --preview '
 	tmpstuff={}
 	if [ "${tmpstuff: -4}" = ".pdf" ]
 	then

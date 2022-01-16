@@ -2,7 +2,7 @@
 
 shopt -s lastpipe
 
-clipman pick -t STDOUT | fzf -e -i --prompt="clipboard: "  | read -r hmm
+clipman pick -t STDOUT | fzf --sync -e -i --prompt="clipboard: "  | read -r hmm
 
 [ -z "${hmm}" ] && exit
 

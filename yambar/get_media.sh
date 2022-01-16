@@ -21,5 +21,5 @@ while true; do
 		echo -e "status|string|$song_status"
 	fi
 	echo ""
-	sleep 1.0s
+	sleep 0.3s
 done

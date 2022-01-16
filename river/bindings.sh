@@ -8,12 +8,11 @@ mod="Mod4"
 
 # Set your terminal emulator - foot
 term="foot"
-
 # LOCK ME UP  HERE TOO BUT BE ACTIVE
-riverctl map normal $mod "equal" spawn 'swaylock -f -i $HOME/.config/river/backgrounds/background.jpg'
+riverctl map normal $mod "E" spawn "/usr/bin/swaylock -f -c 00000000"
 riverctl map normal $mod I spawn "foot -T 'Firefox Profiles' -c $HOME/.config/foot/foot-thicc.ini -w '350x200' -a firefoxprofile $HOME/.config/river/firefox.sh"
 riverctl map normal $mod O spawn "flatpak --user run org.chromium.Chromium"
-riverctl map normal "Mod1" "space" spawn "foot -T 'Desktop Launcher' -c $HOME/.config/foot/foot-thicc.ini -w '500x800' -a desktops $HOME/.config/river/desktop.sh foot"
+riverctl map normal "Mod1" "space" spawn "foot -T 'Desktop Launcher' -c $HOME/.config/foot/foot-thicc.ini -w '500x600' -a desktops $HOME/.config/river/desktop.sh foot"
 riverctl map normal $mod U spawn "foot -T 'Open Site' -c $HOME/.config/foot/foot-thicc.ini -w '300x300' -a desktops $HOME/.config/river/browser.sh"
 riverctl map normal $mod+Shift U spawn "foot -T 'Launcher' -c $HOME/.config/foot/foot-thicc.ini -w '400x400' -a launcher $HOME/.config/river/launcher.sh"
 riverctl map normal $mod T spawn "tessen"

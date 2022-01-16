@@ -1,11 +1,11 @@
-bg_tit: &bg_tit {stack: [{background: {color: 5faf5fff}}, {underline: {size: 3, color: ea6962ff}}]}
+bg_tit: &bg_tit {stack: [{background: {color: 81A1C1ff}}, {underline: {size: 4, color: D8DEE9ff}}]}
 bg_tot: &bg_tot {underline: {size: 3, color: ea6962ff}}
-bg_bat: &bg_bat {stack: [{background: {color: 28282800}}, {underline: {size: 3, color: 5f8700ff}}]}
-hack: &hack mononoki Nerd Font:pixelsize=15
+bg_bat: &bg_bat {stack: [{background: {color: 28282800}}, {underline: {size: 3, color: 907690ff}}]}
+hack: &hack mononoki Nerd Font:pixelsize=13
 bar:
   height: 40
   location: top
-  font: mononoki Nerd Font:pixelsize=11
+  font: mononoki Nerd Font:pixelsize=10
   spacing: 2
   margin: 0
   layer: bottom
@@ -14,7 +14,6 @@ bar:
 
   left:
     - river:
-        font: mononoki Nerd Font:pixelsize=14:style:Bold
         anchors:
           - base: &river_base
               left-margin: 10
@@ -38,7 +37,8 @@ bar:
           map:
             on-click: 
               left: sh -c "riverctl set-focused-tags $((1 << ({id} - 1)))"
-              right: sh -c "riverctl toggle-view-tags $((1 << ({id} -1)))"
+              right: sh -c "riverctl toggle-focused-tags $((1 << ({id} -1)))"
+              middle: sh -c "riverctl toggle-view-tags $((1 << ({id} -1)))"
             tag: state
             values:
               urgent:
@@ -49,6 +49,12 @@ bar:
                 map:
                   <<: *river_base
                   deco: *bg_tit
+              visible:
+                map:
+                  tag: occupied
+                  values:
+                    false: {map: {<<: *river_base}}
+                    true: {map: {<<: *river_base, deco: *bg_tit}}
               unfocused:
                 map:
                   <<: *river_base
@@ -61,6 +67,7 @@ bar:
   
   center:
     - river:
+        font: mononoki Nerd Font:pixelsize=10
         title:
           map:
             tag: title
@@ -91,7 +98,7 @@ bar:
                  spacing: 0
                  items:
                    - string:
-                      font: mononoki Nerd Font:pixelsize=20
+                      font: mononoki Nerd Font:pixelsize=16
                       text: "" 
                       left-margin: 5
                       right-margin: 5
@@ -101,6 +108,7 @@ bar:
                           color: 1DB954ff
                       foreground: 1DB954ff
                    - string:
+                      font: mononoki Nerd Font:pixelsize=10
                       text: "{status}"
                       left-margin: 5
                       right-margin: 5
@@ -360,6 +368,18 @@ bar:
                   size: 3
                   color: f76802ff
     - script:
+        path: /home/uncomfy/.config/yambar/weather.sh
+        args: []
+        content:
+          - string:
+              text: "{info}"
+              left-margin: 4
+              right-margin: 4
+              deco:
+                underline:
+                  size: 3
+                  color: D8DEE9ff
+    - script:
         path: /home/uncomfy/.config/yambar/pacman.sh
         args: []
         content:
@@ -368,8 +388,9 @@ bar:
             items:
               - string:
                   text: " "
-                  left-margin: 1
-                  font: mononoki Nerd Font:pixelsize=16:style:Bold
+                  left-margin: 2
+                  right-margin: 2
+                  font: mononoki Nerd Font:pixelsize=12:style:Bold
                   deco:
                     underline:
                       size: 3

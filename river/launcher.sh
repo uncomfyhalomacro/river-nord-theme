@@ -22,7 +22,7 @@ allapps=( "${frompaths[@]}" "${flatrun[@]}" )
 for e in "${allapps[@]}"
 do 
     echo "$e"
-done | uniq | sort | fzf -e -i --prompt='launch: ' | read -r cmd
+done | uniq | sort | fzf --sync -e -i --prompt='launch: ' | read -r cmd
 
 [ -z "${cmd}" ] && exit
 

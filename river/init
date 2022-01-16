@@ -47,20 +47,20 @@ pkill wl-paste
 wl-paste -t text --watch clipman store & disown
 
 # LOCK ME UP (kinky)
-# riverctl spawn $HOME/.config/river/lock.sh
+riverctl spawn $HOME/.config/river/lock.sh
 
 #####################
 # Themes and Colors #
 #####################
 # Borders
-riverctl border-color-focused 0x81a1c1ff
-riverctl border-color-unfocused 0xe5e9f0dd
-riverctl border-width 2
+riverctl border-color-focused 0xFFFACDff
+riverctl border-color-unfocused 0x5E81ACff
+riverctl border-width 4
 riverctl background-color 0x282828
 
 
 gnome_schema="org.gnome.desktop.interface"
-gsettings set "$gnome_schema" gtk-theme "Adwaita"
+gsettings set "$gnome_schema" gtk-theme "Adwaita-dark"
 gsettings set "$gnome_schema" icon-theme "Papirus"
 gsettings set "$gnome_schema" cursor-theme "Adwaita"
 gsettings set "$gnome_schema" font-name "VictorMono Nerd Font 10"
