@@ -34,3 +34,5 @@ Previews
 ![Image](https://github.com/uncomfyhalomacro/river-nord-theme/blob/main/screenshots/screenshot_02.png)
 
 ![Image](https://github.com/uncomfyhalomacro/river-nord-theme/blob/main/screenshots/screenshot_03.png)
+
+![Image](https://github.com/uncomfyhalomacro/river-nord-theme/blob/main/screenshots/fuzzel.png)
